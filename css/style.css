@@ -1,0 +1,32 @@
+body {
+    background-color: #121212;
+    color: #FFFFFF;
+    font-family: "Arial", serif;
+}
+
+div {
+    padding: 2px 2px 2px 5px;
+    border: 1px solid #353535;
+    border-radius: 10px;
+
+    background-color: #303030;
+}
+
+h1 {
+    padding: 2px 2px 2px 5px;
+
+    border: 2px dashed #353535;
+    border-radius: 10px;
+    font-family: "Arial Black", serif;
+}
+
+h2 {
+    padding: 2px 2px 2px 5px;
+
+    border-bottom: 2px solid #353535;
+    font-family: "Arial", serif;
+}
+
+p {
+    font-family: "Comic Sans MS", sans-serif;
+}

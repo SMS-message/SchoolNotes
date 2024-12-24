@@ -8,9 +8,9 @@ const bio = document.getElementById('bio')
 const obj = document.getElementById('obj')
 
 
-let geoHidden = false;
-let bioHidden = false;
-let objHidden = false;
+let geoHidden = geo.getAttribute('class') === 'hidden';
+let bioHidden = bio.getAttribute('class') === 'hidden';
+let objHidden = obj.getAttribute('class') === 'hidden';
 
 geoBtn.addEventListener('click', function () {
     if(geoHidden){

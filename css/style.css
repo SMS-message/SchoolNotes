@@ -117,11 +117,21 @@ p:hover {
     display: none;
 }
 
+.useless {
+    width: 225px;
+    display: block;
+    background: none;
+    border: none;
+}
+
 #tabDiv {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
+    position: fixed;
+    top: 5px;
+
 
     width: fit-content;
     margin: 10px;

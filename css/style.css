@@ -118,7 +118,7 @@ p:hover {
 }
 
 .useless {
-    width: 225px;
+    width: 230px;
     display: block;
     background: none;
     border: none;
@@ -158,6 +158,6 @@ p:hover {
     transform: scale(105%);
 }
 
-#tabDiv  > button:checked {
+#tabDiv  > button:active {
     transform: scale(102%);
 }

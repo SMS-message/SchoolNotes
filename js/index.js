@@ -1,11 +1,11 @@
 "use strict";
 
-const geoBtn = document.getElementById('geoBtn')
-const bioBtn = document.getElementById('bioBtn')
-const objBtn = document.getElementById('objBtn')
-const geo = document.getElementById('geo')
-const bio = document.getElementById('bio')
-const obj = document.getElementById('obj')
+const geoBtn = document.getElementById('geoBtn');
+const bioBtn = document.getElementById('bioBtn');
+const objBtn = document.getElementById('objBtn');
+const geo = document.getElementById('geo');
+const bio = document.getElementById('bio');
+const obj = document.getElementById('obj');
 
 
 let geoHidden = geo.getAttribute('class') === 'hidden';

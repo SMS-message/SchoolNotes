@@ -43,6 +43,27 @@ h1 {
     transition: all 200ms;
 }
 
+th {
+    border: 1px solid #AAAAAA;
+    transition: all 200ms;
+}
+
+th:hover {
+    border-color: #FFFFFF;
+    transform: scale(101%);
+}
+
+td {
+    border: 1px solid #AAAAAA;
+    transition: all 200ms;
+    padding: 2px;
+}
+
+td:hover {
+    border-color: #FFFFFF;
+    transform: scale(101%);
+}
+
 #bio > h1:hover {
     color: aquamarine;
 }

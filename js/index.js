@@ -12,12 +12,9 @@ let geoHidden = geo.getAttribute('class') === 'hidden';
 let bioHidden = bio.getAttribute('class') === 'hidden';
 let objHidden = obj.getAttribute('class') === 'hidden';
 
-bioBtn.style.background = "#454545";
-bioBtn.style.transform = "scale(105%)";
-
 function any(arr) {
     let res = false;
-    for (let i=0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         res ||= !arr[i];
     }
     return Boolean(res);

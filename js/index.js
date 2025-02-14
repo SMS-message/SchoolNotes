@@ -12,6 +12,16 @@ let geoHidden = geo.getAttribute('class') === 'hidden';
 let bioHidden = bio.getAttribute('class') === 'hidden';
 let objHidden = obj.getAttribute('class') === 'hidden';
 
+change_button(geoHidden, geoBtn)
+change_button(bioHidden, bioBtn)
+change_button(objHidden, objBtn)
+
+function change_button(bool, button) {
+    if (!bool) {
+        button.classList.add("switched")
+    }
+}
+
 function any(arr) {
     let res = false;
     for (let i = 0; i < arr.length; i++) {
@@ -24,42 +34,34 @@ geoBtn.addEventListener('click', function () {
     if (geoHidden) {
         geo.setAttribute('class', 'main');
         geoHidden = false;
-        geoBtn.style.background = "#454545";
-        geoBtn.style.transform = "scale(105%)";
+        geoBtn.classList.add("switched");
     } else if (any([bioHidden, objHidden])) {
         geo.setAttribute('class', 'hidden');
         geoHidden = true;
-        geoBtn.style.background = "#202020";
-        geoBtn.style.transform = "scale(100%)";
+        geoBtn.classList.remove("switched")
     }
-    console.log(bioHidden, objHidden);
 })
 
 bioBtn.addEventListener('click', function () {
     if (bioHidden) {
         bio.setAttribute('class', 'main');
         bioHidden = false;
-        bioBtn.style.background = "#454545";
-        bioBtn.style.transform = "scale(105%)";
+        bioBtn.classList.add("switched")
     } else if (any([geoHidden, objHidden])) {
         bio.setAttribute('class', 'hidden');
         bioHidden = true;
-        bioBtn.style.background = "#202020";
-        bioBtn.style.transform = "scale(100%)";
+        bioBtn.classList.remove("switched")
     }
-    console.log([geoHidden, objHidden]);
 })
 
 objBtn.addEventListener('click', function () {
     if (objHidden) {
         obj.setAttribute('class', 'main');
         objHidden = false;
-        objBtn.style.background = "#454545";
-        objBtn.style.transform = "scale(105%)";
+        objBtn.classList.add("switched")
     } else if (any([bioHidden, geoHidden])) {
         obj.setAttribute('class', 'hidden');
         objHidden = true;
-        objBtn.style.background = "#202020";
-        objBtn.style.transform = "scale(100%)";
+        objBtn.classList.remove("switched")
     }
 })

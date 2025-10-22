@@ -41,14 +41,9 @@ let blocks = ["geo", "bio", "obj"];
 document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < 3; i++) {
         blocks[i] = new MyHTMLBlock(blocks[i], blocks[i] + "Btn");
-    }
-
-    for (let i = 0; i < 3; i++) {
-        blocks[i].changeButton();
-    }
-
-    for (let i = 0; i < 3; i++) {
         let cur_block = blocks[i];
+
+        cur_block.changeButton();
         cur_block.btn.addEventListener('click', () => {
             cur_block.onClick()
         })

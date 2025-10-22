@@ -1,6 +1,5 @@
 body, html {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     width: fit-content;
     background-color: #121212;
@@ -21,6 +20,7 @@ div {
 .main {
     visibility: visible;
     content-visibility: visible;
+    padding: 0 5px 0 5px;
     display: block;
     background: none;
     border: none;

@@ -1,67 +1,56 @@
-"use strict";
+class MyHTMLBlock {
+    constructor(block_name, button_name) {
+        this._block = document.getElementById(block_name);
+        this._button = document.getElementById(button_name);
+        this._hidden = this._block.getAttribute("class") === 'hidden';
+    }
 
-const geoBtn = document.getElementById('geoBtn');
-const bioBtn = document.getElementById('bioBtn');
-const objBtn = document.getElementById('objBtn');
-const geo = document.getElementById('geo');
-const bio = document.getElementById('bio');
-const obj = document.getElementById('obj');
+    get btn() {
+        return this._button;
+    }
 
+    onClick() {
+        if (this._hidden) {
+            this._block.setAttribute('class', 'main');
+            this._hidden = false;
+            this._button.classList.add("switched");
+            for (let i = 0; i < 3; i++) {
+                if (blocks[i] !== this) {
+                    blocks[i].hide()
+                }
+            }
+        }
+    }
 
-let geoHidden = geo.getAttribute('class') === 'hidden';
-let bioHidden = bio.getAttribute('class') === 'hidden';
-let objHidden = obj.getAttribute('class') === 'hidden';
+    hide() {
+        this._block.setAttribute('class', 'hidden');
+        this._hidden = true;
+        this._button.classList.remove("switched");
+    }
 
-change_button(geoHidden, geoBtn)
-change_button(bioHidden, bioBtn)
-change_button(objHidden, objBtn)
-
-function change_button(bool, button) {
-    if (!bool) {
-        button.classList.add("switched")
+    changeButton() {
+        if (!this._hidden) {
+            this._button.classList.add("switched");
+        }
     }
 }
 
-function any(arr) {
-    let res = false;
-    for (let i = 0; i < arr.length; i++) {
-        res ||= !arr[i];
-    }
-    return Boolean(res);
-}
+let blocks = ["geo", "bio", "obj"];
 
-geoBtn.addEventListener('click', function () {
-    if (geoHidden) {
-        geo.setAttribute('class', 'main');
-        geoHidden = false;
-        geoBtn.classList.add("switched");
-    } else if (any([bioHidden, objHidden])) {
-        geo.setAttribute('class', 'hidden');
-        geoHidden = true;
-        geoBtn.classList.remove("switched")
+// Только после полной прогрузки страницы
+document.addEventListener("DOMContentLoaded", () => {
+    for (let i = 0; i < 3; i++) {
+        blocks[i] = new MyHTMLBlock(blocks[i], blocks[i] + "Btn");
     }
-})
 
-bioBtn.addEventListener('click', function () {
-    if (bioHidden) {
-        bio.setAttribute('class', 'main');
-        bioHidden = false;
-        bioBtn.classList.add("switched")
-    } else if (any([geoHidden, objHidden])) {
-        bio.setAttribute('class', 'hidden');
-        bioHidden = true;
-        bioBtn.classList.remove("switched")
+    for (let i = 0; i < 3; i++) {
+        blocks[i].changeButton();
     }
-})
 
-objBtn.addEventListener('click', function () {
-    if (objHidden) {
-        obj.setAttribute('class', 'main');
-        objHidden = false;
-        objBtn.classList.add("switched")
-    } else if (any([bioHidden, geoHidden])) {
-        obj.setAttribute('class', 'hidden');
-        objHidden = true;
-        objBtn.classList.remove("switched")
+    for (let i = 0; i < 3; i++) {
+        let cur_block = blocks[i];
+        cur_block.btn.addEventListener('click', () => {
+            cur_block.onClick()
+        })
     }
 })
